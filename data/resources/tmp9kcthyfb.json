@@ -1,0 +1,1 @@
+{"messages": [{"role": "user", "content": "我最近在学习 Rust 语言"}, {"role": "assistant", "content": "很好！Rust 是一门很棒的系统编程语言"}, {"role": "user", "content": "是的，我特别喜欢它的内存安全特性"}, {"role": "assistant", "content": "Rust 的所有权系统确实很独特"}]}

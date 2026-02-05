@@ -1,0 +1,1415 @@
+{
+"version": 1.0,
+"merge": {
+    "operations":{
+        "DeleteBucketNotificationConfiguration":{
+            "name":"DeleteBucketNotificationConfiguration",
+            "http":{
+                "method":"DELETE",
+                "requestUri":"/{Bucket}",
+                "responseCode":204
+            },
+            "input":{"shape":"DeleteBucketNotificationConfigurationRequest"},
+            "documentationUrl":"https://docs.ceph.com/docs/master/radosgw/s3/bucketops/#delete-notification",
+            "documentation":"<p>Deletes the notification configuration from the bucket.</p>"
+        },
+        "GetUsageStats":{
+            "name":"GetUsageStats",
+            "http":{
+                "method":"GET",
+                "requestUri":"/?usage",
+                "responseCode":200
+            },
+            "output": {"shape": "GetUsageStatsOutput"},
+            "documentationUrl":"https://docs.ceph.com/docs/master/radosgw/s3/serviceops#get-usage-stats",
+            "documentation":"<p>Get usage stats for the user</p>"
+        },
+	"ProcessObject":{
+            "name":"ProcessObject",
+            "http":{
+                "method":"POST",
+                "requestUri":"/{Bucket}/{Key+}?x-zos-process",
+                "responseCode":200
+            },
+            "input":{"shape":"ProcessObjectRequest"},
+            "output":{"shape":"ProcessObjectOutput"},
+            "documentationUrl":"https://help.aliyun.com/document_detail/55811.html?spm=a2c4g.11186623.6.766.47884981n2g5s0",
+            "documentation":"<p>Process image object persistent</p>"
+        },
+        "PostObjectsPackage":{
+            "name":"PostObjectsPackage",
+            "http":{
+                "method":"POST",
+                "requestUri":"/{Bucket}/{Key+}?package",
+                "responseCode":200
+            },
+            "input":{"shape":"PostObjectsPackageRequest"},
+            "output":{"shape":"PostObjectsPackageOutput"},
+            "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPOSTpackage.html",
+            "documentation":"<p>Process multi objects make zip</p>",
+            "httpChecksumRequired":true
+        },
+        "GetObjectsPackage":{
+            "name":"GetObjectsPackage",
+            "http":{
+                "method":"GET",
+                "requestUri":"/{Bucket}/{Key+}?package",
+                "responseCode":200
+            },
+            "input":{"shape":"GetObjectsPackageRequest"},
+            "output":{"shape":"GetObjectsPackageOutput"},
+            "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectGETpackage.html",
+            "documentation":"<p>get multi objects make zip progress</p>",
+            "httpChecksumRequired":true
+        },
+        "PostObjectConsistency":{
+            "name":"PostObjectConsistency",
+            "http":{
+                "method":"POST",
+                "requestUri":"/{Bucket}/{Key+}?consistency",
+                "responseCode":200
+            },
+            "input":{"shape":"PostObjectConsistencyRequest"},
+            "output":{"shape":"PostObjectConsistencyOutput"},
+            "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPOSTConsistency.html",
+            "documentation":"<p>set object consistency check</p>",
+            "httpChecksumRequired":true
+        },
+        "GetObjectConsistency":{
+            "name":"GetObjectConsistency",
+            "http":{
+                "method":"GET",
+                "requestUri":"/{Bucket}/{Key+}?consistency",
+                "responseCode":200
+            },
+            "input":{"shape":"GetObjectConsistencyRequest"},
+            "output":{"shape":"GetObjectConsistencyOutput"},
+            "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectGETConsistency.html",
+            "documentation":"<p>get object consistency check</p>",
+            "httpChecksumRequired":true
+        },
+        "MdCustomConfig":{
+            "name":"MdCustomConfig",
+            "http":{
+                "method":"POST",
+                "requestUri":"/{Bucket}?mdsearch",
+                "responseCode":200
+            },
+            "input":{"shape":"MdCustomConfigInput"},
+            "documentation":"<p>Create user-defined metadata index</p>"
+        },
+        "MdCustomDel":{
+            "name":"MdCustomDel",
+            "http":{
+                "method":"DELETE",
+                "requestUri":"/{Bucket}?mdsearch",
+                "responseCode":200
+            },
+            "input":{"shape":"MdCustomDelInput"},
+            "documentation":"<p>Delete user-defined metadata index</p>"
+        },
+        "GetMdCustomConfig":{
+            "name":"GetMdCustomConfig",
+            "http":{
+                "method":"GET",
+                "requestUri":"/{Bucket}/?mdsearch",
+                "responseCode":200
+            },
+            "input":{"shape":"GetMdCustomConfigInput"},
+            "output":{"shape":"GetMdCustomConfigOutput"},
+            "documentation":"<p>Get user-defined metadata index</p>"
+        },
+        "MdSearch":{
+            "name":"MdSearch",
+            "http":{
+                "method":"GET",
+                "requestUri":"/",
+                "responseCode":200
+            },
+            "input":{"shape":"GetMetadataInput"},
+            "output":{"shape":"GetMetadataOutput"},
+            "documentation":"<p>Metadata search</p>"
+        },
+        "GetHttpStatus":{
+            "name":"GetHttpStatus",
+            "http":{
+                "method":"GET",
+                "requestUri":"/?httpstatus&start-date={startdate}&end-date={enddate}&format=xml",
+                "responseCode":200
+            },
+            "input":{"shape":"GetHttpStatusRequest"},
+			"output":{"shape":"GetHttpStatusOutput"},
+            "documentation":"<p>Get http status code</p>"
+        },
+        "PutSymlink":{
+            "name":"PutSymlink",
+            "http":{
+                "method":"PUT",
+                "requestUri":"/{Bucket}/{Key+}?symlink",
+                "responseCode":200
+            },
+            "input":{"shape":"PutSymlinkRequest"},
+            "output":{"shape":"PutSymlinkOutput"},
+            "documentation":"<p>Adds an symlink object to a bucket.</p>"
+        },
+        "GetSymlink":{
+            "name":"GetSymlink",
+            "http":{
+                "method":"GET",
+                "requestUri":"/{Bucket}/{Key+}?symlink",
+                "responseCode":200
+            },
+            "input":{"shape":"GetSymlinkRequest"},
+            "output":{"shape":"GetSymlinkOutput"},
+            "documentation":"<p>Get symlink target object name.</p>"
+        },
+        "ListSubaccounts": {
+            "name": "ListSubaccounts",
+            "http": {
+                "method": "GET",
+                "requestUri": "/?subaccount&list"
+            },
+            "input": {
+                "shape": "ListSubaccountsRequest"
+            },
+            "output": {
+                "shape": "ListSubaccountsResponse"
+            },
+            "documentation": "<p>List sub accounts of target user.</p>"
+        },
+        "GetSubaccount": {
+            "name": "GetSubaccount",
+            "http": {
+                "method": "GET",
+                "requestUri": "/?subaccount&uid={UserID}"
+            },
+            "input": {
+                "shape": "GetSubaccountRequest"
+            },
+            "output": {
+                "shape": "GetSubaccountResponse"
+            },
+            "documentation": "<p>Get target sub account information of target user.</p>"
+        },
+        "CreateSubaccount": {
+            "name": "CreateSubaccount",
+            "http": {
+                "method": "PUT",
+                "requestUri": "/?subaccount&uid={UserID}&display-name={DisplayName}"
+            },
+            "input": {
+                "shape": "CreateSubaccountRequest"
+            },
+            "output": {
+                "shape": "CreateSubaccountResponse"
+            },
+            "documentation": "<p>Create sub account for target user.</p>"
+        },
+        "RemoveSubaccount": {
+            "name": "RemoveSubaccount",
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/?subaccount&uid={UserID}"
+            },
+            "input": {
+                "shape": "RemoveSubaccountRequest"
+            },
+            "output": {
+                "shape": "RemoveSubaccountResponse"
+            },
+            "documentation": "<p>Remove sub account for target user.</p>"
+        },
+        "ModifySubaccount": {
+            "name": "ModifySubaccount",
+            "http": {
+                "method": "POST",
+                "requestUri": "/?subaccount&uid={UserID}"
+            },
+            "input": {
+                "shape": "ModifySubaccountRequest"
+            },
+            "output": {
+                "shape": "ModifySubaccountResponse"
+            },
+            "documentation": "<p>Modify sub account for target user.</p>"
+        }
+    },
+    "shapes": {
+        "CreateBucketRequest": {
+            "members": {
+                "StorageClass": {
+                    "shape":"StorageClass",
+                    "documentation":"<p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>",
+                    "location":"header",
+                    "locationName":"x-amz-storage-class"
+                },
+                "AZPolicy": {
+                    "shape":"AZPolicy",
+                    "documentation":"<p>The policy of az to use for the bucket. Defaults to 'None'.</p>",
+                    "location":"header",
+                    "locationName":"x-az-policy"
+                }
+            }
+        },
+        "AZPolicy":{"type":"string"},
+        "ListObjectsRequest": {
+            "members": {
+                "AllowUnordered": {
+                    "shape":"AllowUnordered",
+                    "documentation":"<p>Allow the listing results to be returned in unsorted order. This may be faster when listing very large buckets.</p>",
+                    "location":"querystring",
+                    "locationName":"allow-unordered"
+                }
+            }
+        },
+        "AllowUnordered":{"type":"boolean"},
+        "CreateMultipartUploadRequest": {
+            "members": {
+                "RenameAlgorithm": {
+                    "shape":"RenameAlgorithm",
+                    "documentation":"<p>the algorithm that used to calculate the hash value，the rename file with the value</p>",
+                    "location":"header",
+                    "locationName":"x-amz-rename-algorithm"
+                },
+		"ChecksumAlgorithm": {
+                    "shape":"ChecksumAlgorithm",
+                    "documentation":"<p>data consistency check algorithm</p>",
+                    "location": "header",
+                    "locationName": "x-zos-consistency-check-algorithm"
+                }
+            }
+        },
+        "CompleteMultipartUploadRequest": {
+            "members": {
+                "CallbackURL": {
+                    "shape":"CallbackURL",
+                    "documentation": "<p> callback url for put request </p>",
+                    "location": "header",
+                    "locationName": "x-amz-callback-url"
+                },
+                "CallbackBody": {
+                    "shape":"CallbackBody",
+                    "documentation": "<p> callback body for put request </p>",
+                    "location": "header",
+                    "locationName": "x-amz-callback-body"
+                },
+                "CallbackAuth": {
+                    "shape":"CallbackAuth",
+                    "documentation": "<p> enable auth for callback request </p>",
+                    "location": "header",
+                    "locationName": "x-amz-callback-auth"
+                }
+            }
+        },
+        "PutObjectRequest": {
+            "members": {
+                "CallbackURL": {
+                    "shape":"CallbackURL",
+                    "documentation": "<p> callback url for put request </p>",
+                    "location": "header",
+                    "locationName": "x-amz-callback-url"
+                },
+                "CallbackBody": {
+                    "shape":"CallbackBody",
+                    "documentation": "<p> callback body for put request </p>",
+                    "location": "header",
+                    "locationName": "x-amz-callback-body"
+                },
+                "CallbackAuth": {
+                    "shape":"CallbackAuth",
+                    "documentation": "<p> enable auth for callback request </p>",
+                    "location": "header",
+                    "locationName": "x-amz-callback-auth"
+                },
+                "RenameAlgorithm": {
+                    "shape":"RenameAlgorithm",
+                    "documentation": "<p> the algorithm that used to calculate the hash value，the rename file with the value</p>",
+                    "location": "header",
+                    "locationName": "x-amz-rename-algorithm"
+                },
+                "AppendPosition": {
+                    "shape":"AppendPosition",
+                    "documentation": "<p>Position to allow appending</p>",
+                    "location": "querystring",
+                    "locationName": "position"
+                },
+                "Append": {
+                    "shape":"Append",
+                    "documentation":"<p>Append Object</p>",
+                    "location": "querystring",
+                    "locationName": "append"
+                },
+                "ChecksumAlgorithm": {
+                    "shape":"ChecksumAlgorithm",
+                    "documentation":"<p>data consistency check algorithm</p>",
+                    "location": "header",
+                    "locationName": "x-zos-consistency-check-algorithm"
+                }
+            }
+        },
+        "CallbackURL": {"type":"string"},
+        "CallbackBody": {"type":"string"},
+        "CallbackAuth": {"type":"boolean"},
+        "Append": {"type":"boolean"},
+        "AppendPosition":{"type":"integer"},
+        "RenameAlgorithm":{"type":"string"},
+        "ChecksumAlgorithm":{"type":"string"},
+        "PutObjectOutput": {
+            "members": {
+                "AppendPosition": {
+                    "shape":"AppendPosition",
+                    "documentation": "<p>Position to allow appending</p>",
+                    "location": "header",
+                    "locationName": "x-rgw-next-append-position",
+                    "documentationUrl":"https://docs.ceph.com/docs/master/radosgw/s3/objectops/#append-object"
+                }
+            }
+        },
+	"GetObjectRequest": {
+            "members": {
+                "ZosProcess": {
+                    "shape":"ZosProcess",
+                    "documentation":"<p>The parameter is used to process image.</p>",
+                    "location":"querystring",
+                    "locationName":"x-zos-process"
+                },
+                "TrafficLimit": {
+                    "shape":"TrafficLimit",
+                    "documentation":"<p>The parameter is used to traffic limit.</p>",
+                    "location":"header",
+                    "locationName":"x-amz-traffic-limit"
+                }
+            }
+        },
+        "ZosProcess":{"type":"string"},
+        "TrafficLimit":{"type":"string"},
+        "ProcessObjectRequest":{
+            "type":"structure",
+            "required":[
+                "Bucket",
+                "ProcessSource",
+                "Key",
+                "ZosProcess"
+            ],
+            "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>The name of the destination bucket.</p>",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                "ProcessSource":{
+                    "shape":"ProcessSource",
+                    "documentation":"<p>Specifies the source object for the post operation.</p>",
+                    "location":"header",
+                    "locationName":"x-zos-process-source"
+                },
+                "Key":{
+                    "shape":"ObjectKey",
+                    "documentation":"<p>The key of the destination object.</p>",
+                    "location":"uri",
+                    "locationName":"Key"
+                },
+                "ZosProcess":{
+                    "shape":"ZosProcess",
+                    "documentation":"<p>The parameter is used to process image.</p>",
+                    "locationName":"x-zos-process"
+                }
+            },
+            "payload":"ZosProcess"
+        },
+        "ProcessSource":{
+            "type":"string",
+            "pattern":"\\/.+\\/.+"
+        },
+        "ProcessObjectOutput":{
+            "type":"structure",
+            "members":{
+                "Expiration":{
+                    "shape":"Expiration",
+                    "documentation":"<p> If the expiration is configured for the object (see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a>), the response includes this header. It includes the expiry-date and rule-id key-value pairs that provide information about object expiration. The value of the rule-id is URL encoded.</p>",
+                    "location":"header",
+                    "locationName":"x-amz-expiration"
+                },
+                "ETag":{
+                    "shape":"ETag",
+                    "documentation":"<p>Entity tag for the uploaded object.</p>",
+                    "location":"header",
+                    "locationName":"ETag"
+                },
+                "VersionId":{
+                    "shape":"ObjectVersionId",
+                    "documentation":"<p>Version of the object.</p>",
+                    "location":"header",
+                    "locationName":"x-amz-version-id"
+                }
+            }
+        },
+        "PostObjectsPackageRequest":{
+            "type":"structure",
+            "required":[
+                "Bucket",
+                "Key",
+                "SourceConfigPolicy"
+            ],
+            "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>The name of the destination bucket.</p>",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                "Key":{
+                    "shape":"ObjectKey",
+                    "documentation":"<p>The key of the destination object.</p>",
+                    "location":"uri",
+                    "locationName":"Key"
+                },
+                "SourceConfigPolicy":{
+                    "shape":"SourceConfigPolicy",
+                    "documentation":"<p>This parameter indicates which objects need to be packaged.</p>",
+                    "locationName":"SourceConfigPolicy",
+                    "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}
+                }
+            },
+            "payload":"SourceConfigPolicy"
+        },
+        "SourceConfigPolicy":{
+            "type":"structure",
+            "required":["Mode"],
+            "members":{
+                "SourceRules":{
+                    "shape":"SourceRules",
+                    "documentation":"<p>A list of source rule.</p>",
+                    "locationName":"SourceList"
+                },
+                "Mode":{
+                    "shape":"Mode",
+                    "documentation":"<p>The mode of multi objects package.</p>"
+                },
+                "SourceIndex":{
+                    "shape":"SourceIndex",
+                    "documentation":"<p>An object's data contains source rule.</p>"
+                }
+            },
+            "documentation":"<p>Contains the elements that set the objects into zip package.</p>"
+        },
+        "SourceRules":{
+            "type":"list",
+            "required":["SourceRule"],
+            "member":{
+                "shape":"SourceRule",
+                "locationName":"SourceRule"
+            }
+        },
+        "SourceRule":{
+            "type":"structure",
+            "required":["Resource"],
+            "members":{
+                "Resource":{
+                    "shape":"Resource",
+                    "documentation":"<p>The object which is to be packaged.</p>"
+                },
+                "renamePath":{
+                    "shape":"renamePath",
+                    "documentation":"<p>rename the path in zip package.</p>"
+                }
+            },
+            "documentation":"<p>make objects into zip package rule.</p>"
+        },
+        "Resource":{"type":"string"},
+        "renamePath":{"type":"string"},
+        "Mode":{"type":"integer"},
+        "SourceIndex":{"type":"string"},
+        "PostObjectsPackageOutput":{
+            "type":"structure",
+            "members":{
+                "PersistentId":{
+                    "shape":"PersistentId",
+                    "documentation":"<p>PersistentId is user task id.</p>",
+                    "location":"header",
+                    "locationName":"x-zos-persistent-id"
+                }
+            }
+        },
+        "PersistentId":{"type":"string"},
+        "GetObjectsPackageRequest":{
+            "type":"structure",
+            "required":[
+                "Bucket",
+                "Key",
+                "PersistentId"
+            ],
+            "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>The name of the destination bucket.</p>",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                "Key":{
+                    "shape":"ObjectKey",
+                    "documentation":"<p>The key of the destination object.</p>",
+                    "location":"uri",
+                    "locationName":"Key"
+                },
+                "PersistentId":{
+                    "shape":"PersistentId",
+                    "documentation":"<p>PersistentId is user task id.</p>",
+                    "location":"header",
+                    "locationName":"x-zos-persistent-id"
+                }
+            }
+        },
+        "GetObjectsPackageOutput":{
+            "type":"structure",
+            "members":{
+                "PersistentId":{
+                    "shape":"PersistentId",
+                    "documentation":"<p>PersistentId is user task id.</p>",
+                    "location":"header",
+                    "locationName":"x-zos-persistent-id"
+                },
+                "PackageStatus":{
+                    "shape":"PackageStatus",
+                    "documentation":"<p>The PackageStatus which is about PersistentId.</p>",
+                    "location":"header",
+                    "locationName":"x-zos-package-status"
+                },
+                "DescInfo":{
+                    "shape":"DescInfo",
+                    "documentation":"<p>The DescInfo which is about PersistentId.</p>"
+                },
+                "SourceRules":{
+                    "shape":"SourceRules",
+                    "documentation":"<p>A list of source rule.</p>",
+                    "locationName":"SourceList"
+                },
+                "Mode":{
+                    "shape":"Mode",
+                    "documentation":"<p>The mode of multi objects package.</p>"
+                },
+                "SourceIndex":{
+                    "shape":"SourceIndex",
+                    "documentation":"<p>An object's data contains source rule.</p>"
+                }
+            }
+        },
+        "PackageStatus":{"type":"string"},
+        "DescInfo":{"type":"string"},
+        "PostObjectConsistencyRequest": {
+        	"type":"structure",
+      		"required":[
+        		"Bucket",
+        		"Key"
+      		],
+      		"members":{
+      			"Bucket":{
+          			"shape":"BucketName",
+          			"documentation":"<p>The bucket name containing the object. </p> <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p> <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
+         			"location":"uri",
+          			"locationName":"Bucket"
+        		},
+        		"Key":{
+          			"shape":"ObjectKey",
+          			"documentation":"<p>Key of the object to get.</p>",
+          			"location":"uri",
+          			"locationName":"Key"
+        		},
+        		"VersionId":{
+          			"shape":"ObjectVersionId",
+          			"documentation":"<p>VersionId used to reference a specific version of the object.</p>",
+          			"location":"querystring",
+          			"locationName":"versionId"
+        		}
+      		}
+        },
+        "PostObjectConsistencyOutput":{
+       		"type":"structure",
+      		"members":{
+        		"RequestCharged":{
+          			"shape":"RequestCharged",
+          			"location":"header",
+          			"locationName":"x-amz-request-charged"
+        		}
+      		}
+    	},
+    	"GetObjectConsistencyRequest": {
+        	"type":"structure",
+      		"required":[
+        		"Bucket",
+        		"Key"
+      		],
+      		"members":{
+      			"Bucket":{
+          			"shape":"BucketName",
+          			"documentation":"<p>The bucket name containing the object. </p> <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html\">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p> <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
+         			"location":"uri",
+          			"locationName":"Bucket"
+        		},
+        		"Key":{
+          			"shape":"ObjectKey",
+          			"documentation":"<p>Key of the object to get.</p>",
+          			"location":"uri",
+          			"locationName":"Key"
+        		},
+        		"VersionId":{
+          			"shape":"ObjectVersionId",
+          			"documentation":"<p>VersionId used to reference a specific version of the object.</p>",
+          			"location":"querystring",
+          			"locationName":"versionId"
+        		}
+      		}
+        },
+        "GetObjectConsistencyOutput":{
+       		"type":"structure",
+      		"members":{
+        		"ChecksumAlgorithm":{
+                    "shape":"ChecksumAlgorithm",
+                    "documentation":"<p>Data consistency check algorithm.</p>",
+                    "location":"header",
+                    "locationName":"x-rgw-consistency-check-algorithm"
+                },
+                "ChecksumStatus":{
+                    "shape":"ChecksumStatus",
+                    "documentation":"<p>The checksum status which is in consistency check.</p>",
+                    "location":"header",
+                    "locationName":"x-rgw-check-status"
+                },
+                "ChecksumConsistency":{
+                    "shape":"ChecksumConsistency",
+                    "documentation":"<p>The checksum contrast result which is in consistency check.</p>",
+                    "location":"header",
+                    "locationName":"x-rgw-checksum-consistency"
+                },
+                "ErrMsg":{
+                    "shape":"ErrMsg",
+                    "documentation":"<p>The ErrMsg which is in consistency check.</p>"
+                }
+      		}
+    	},
+    	"ChecksumStatus":{"type":"string"},
+    	"ChecksumConsistency":{"type":"string"},
+    	"ErrMsg":{"type":"string"},
+        "GetBucketNotificationConfigurationRequest":{
+            "type":"structure",
+            "required":["Bucket"],
+            "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>Name of the bucket to get the notifications configuration for.</p>",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                "Notification":{
+                    "shape":"NotificationId",
+                    "documentation":"<p>Id of the specific notification on the bucket for which the configuration should be retrieved.</p>",
+                    "location":"querystring",
+                    "locationName":"notification-id"
+                }
+            }
+        },
+        "DeleteBucketNotificationConfigurationRequest":{
+            "type":"structure",
+            "required":["Bucket"],
+            "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>Name of the bucket to delete the notifications configuration from.</p>",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                "Notification":{
+                    "shape":"NotificationId",
+                    "documentation":"<p>Id of the specific notification on the bucket to be deleted.</p>",
+                    "location":"querystring",
+                    "locationName":"notification"
+                }
+            }
+        },
+        "FilterRule":{
+            "type":"structure",
+            "members":{
+                "Name":{
+                    "shape":"FilterRuleName",
+                    "documentation":"<p>The object key name prefix, suffix or regex identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are supported.</p>"
+                },
+                "Value":{
+                    "shape":"FilterRuleValue",
+                    "documentation":"<p>The value that the filter searches for in object key names.</p>"
+                }
+            },
+            "documentation":"<p>Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix, prefix or regex of the key name.</p>"
+        },
+        "FilterRuleName":{
+            "type":"string",
+            "enum":[
+                "prefix",
+                "suffix",
+                "regex"
+            ]
+        },
+        "NotificationConfigurationFilter":{
+            "type":"structure",
+            "members":{
+                "Key":{
+                    "shape":"S3KeyFilter",
+                    "documentation":"<p/>",
+                    "locationName":"S3Key"
+                },
+                "Metadata":{
+                    "shape":"S3MetadataFilter",
+                    "documentation":"<p/>",
+                    "locationName":"S3Metadata"
+                },
+                "Tags":{
+                    "shape":"S3TagsFilter",
+                    "documentation":"<p/>",
+                    "locationName":"S3Tags"
+                }
+
+            },
+            "documentation":"<p>Specifies object key name filtering rules. For information about key name filtering, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Configuring Event Notifications</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>"
+        },
+        "S3KeyFilter":{
+            "type":"structure",
+            "members":{
+                "FilterRules":{
+                    "shape":"FilterRuleList",
+                    "documentation":"<p/>",
+                    "locationName":"FilterRule"
+                }
+            },
+            "documentation":"<p>A container for object key name prefix, suffix and regex filtering rules.</p>"
+        },
+        "S3MetadataFilter":{
+            "type":"structure",
+            "members":{
+                "FilterRules":{
+                    "shape":"FilterRuleList",
+                    "documentation":"<p/>",
+                    "locationName":"FilterRule"
+                }
+            },
+            "documentation":"<p>A container for metadata filtering rules.</p>"
+        },
+        "S3TagsFilter":{
+            "type":"structure",
+            "members":{
+                "FilterRules":{
+                    "shape":"FilterRuleList",
+                    "documentation":"<p/>",
+                    "locationName":"FilterRule"
+                }
+            },
+            "documentation":"<p>A container for object tags filtering rules.</p>"
+        },
+        "GetUsageStatsOutput": {
+            "type": "structure",
+            "members": {
+                "Summary": {
+                    "shape":"UsageStatsSummary",
+                    "documentation": "<p/>"
+                }
+            }
+        },
+        "UsageStatsSummary": {
+            "type": "structure",
+            "members": {
+                "TotalBytes":{"shape":"TotalBytes"},
+                "TotalBytesRounded":{"shape":"TotalBytesRounded"},
+                "TotalEntries":{"shape":"TotalEntries"}
+            }
+        },
+        "TotalBytesRounded":{"type":"integer"},
+        "TotalBytes":{"type":"integer"},
+        "TotalEntries":{"type":"integer"},
+        "MdCustomConfigInput":{
+            "type":"structure",
+            "required":[
+                "Bucket"
+            ],
+            "members":{
+                "Bucket":
+                {
+                    "shape":"BucketName",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                "mdcustom":
+                {
+                    "shape":"MdCustom",
+                    "location":"header",
+                    "locationName":"x-amz-meta-search"
+                }
+            }
+        },
+        "MdCustomDelInput":{
+            "type":"structure",
+            "required":[
+                "Bucket"
+            ],
+            "members":{
+                "Bucket":
+                    {
+                        "shape":"BucketName",
+                        "location":"uri",
+                        "locationName":"Bucket"
+                    }
+            }
+        },
+        "GetMdCustomConfigInput":{
+            "type":"structure",
+            "required":[
+                "Bucket"
+            ],
+            "members":{
+                "Bucket":
+                {
+                    "shape":"BucketName",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                }
+            }
+        },
+        "GetMdCustomConfigOutput": {
+            "type":"structure",
+            "members": {
+                "Entry":{
+                    "shape":"EntryList"
+                }
+            }
+        },
+        "EntryList":{
+            "type":"list",
+            "member":{
+                "shape":"Entry"
+            },
+            "flattened":true
+        },
+        "Entry":{
+            "type":"structure",
+            "members":{
+                "Key":{"shape":"EntryKey"},
+                "Type":{"shape":"EntryType"}
+            }
+        },
+        "EntryKey":{"type":"string"},
+        "EntryType":{"type":"string"},
+        "MdCustom":{"type":"string"},
+        "intmarker":{"type":"integer"},
+        "GetMetadataInput": {
+            "type":"structure",
+            "members": {
+                "query":
+                {
+                    "shape":"query",
+                    "location":"querystring",
+                     "locationName":"query"
+                },
+                "wd":
+                {
+                     "shape":"word",
+                     "location":"querystring",
+                     "locationName":"wd"
+                },
+                "qmode":
+                {
+                     "shape":"qmode",
+                     "location":"querystring",
+                     "locationName":"qmode"
+                },
+                "qorder":
+                {
+                     "shape":"qorder",
+                     "location":"querystring",
+                     "locationName":"qorder"
+                },
+                "qorderkey":
+                {
+                     "shape":"qorderkey",
+                     "location":"querystring",
+                     "locationName":"qorderkey"
+                },
+                "max_keys":
+                {
+                    "shape":"MaxKeys",
+                    "location":"querystring",
+                    "locationName":"max-keys"
+                },
+                "marker":
+                {
+                     "shape":"intmarker",
+                     "location":"querystring",
+                     "locationName":"marker"
+                }
+            }
+        },
+        "GetMetadataOutput": {
+            "type":"structure",
+            "members": {
+                "Marker":{"shape":"Marker"},
+                "IsTruncated":{"shape":"IsTruncated"},
+                "NextMarker":{"shape":"Marker"},
+                "Objects":{"shape":"MdObject"},
+                "Contents":{"shape":"Contents" }
+            }
+        },
+        "MdObject":{
+            "type":"structure",
+            "members":{
+                "Contents":
+                {
+                     "shape":"Contents"
+                }
+            }
+        },
+        "Contents":{
+            "type":"list",
+            "member":{
+                "shape":"content"
+            },
+            "flattened":true
+        },
+        "content":{
+            "type":"structure",
+            "members":{
+                "Bucket":{"shape":"BucketName"},
+                "Key":{"shape":"ObjectKey"},
+                "Instance":{"shape":"ObjectVersionId"},
+                "VersionedEpoch":{"shape":"VersionedEpoch"},
+                "LastModified":{"shape":"LastModified"},
+                "Size":{"shape":"Size"},
+                "ETag":{"shape":"ETag"},
+                "ContentType":{"shape":"ContentType"},
+                "StorageClass":{"shape":"StorageClass"},
+                "Owner":{"shape":"Owner"},
+                "CustomMetadata":{"shape":"CustomMetadata"}
+            }
+        },
+        "query":{"type":"string"},
+        "word":{"type":"string"},
+        "qmode":{"type":"string"},
+        "qorder":{"type":"string"},
+        "qorderkey":{"type":"string"},
+        "VersionedEpoch":{"type":"integer"},
+        "CustomMetadata": {
+            "type":"structure",
+            "members": {
+                "Entry":{
+                    "shape":"EntryList"
+                }
+            }
+        },
+        "GetHttpStatusRequest":{
+            "type":"structure",
+            "members":{
+                "startdate":{
+                    "shape":"Value",
+                    "documentation":"<p>the date begin</p>",
+                    "location":"uri",
+                    "locationName":"startdate"
+                },
+                "enddate":{
+                    "shape":"Value",
+                    "documentation":"<p>the date end.</p>",
+		            "location":"uri",
+                    "locationName":"enddate"
+                }
+            }
+        },
+		"statuscode":{"type":"integer"},
+        "totalcount":{"type":"integer"},
+        "StatusContents": {
+            "type":"structure",
+            "members":{
+                "statuscode":{"shape":"statuscode"},
+                "totalcount":{"shape":"totalcount"}
+            }
+        },
+        "GetHttpStatusOutput": {
+            "type":"structure",
+            "members": {
+                "httpstatus_object":{"shape":"httpstatus_object" }
+            }
+        },
+        "httpstatus_object": {
+            "type":"list",
+            "member": {
+                "shape":"StatusContents"
+            },
+            "flattened":true
+        },
+        "Redirect":{
+	      "type":"structure",
+	      "members":{
+	        "HostName":{
+	          "shape":"HostName",
+	          "documentation":"<p>The host name to use in the redirect request.</p>"
+	        },
+	        "HttpRedirectCode":{
+	          "shape":"HttpRedirectCode",
+	          "documentation":"<p>The HTTP redirect code to use on the response. Not required if one of the siblings is present.</p>"
+	        },
+	        "Protocol":{
+	          "shape":"Protocol",
+	          "documentation":"<p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>"
+	        },
+	        "ReplaceKeyPrefixWith":{
+	          "shape":"ReplaceKeyPrefixWith",
+	          "documentation":"<p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix <code>docs/</code> (objects in the <code>docs/</code> folder) to <code>documents/</code>, you can set a condition block with <code>KeyPrefixEquals</code> set to <code>docs/</code> and in the Redirect set <code>ReplaceKeyPrefixWith</code> to <code>/documents</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyWith</code> is not provided.</p> <important> <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints\"> XML related object key constraints</a>.</p> </important>"
+	        },
+	        "ReplaceKeyWith":{
+	          "shape":"ReplaceKeyWith",
+	          "documentation":"<p>The specific object key to use in the redirect request. For example, redirect request to <code>error.html</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyPrefixWith</code> is not provided.</p> <important> <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints\"> XML related object key constraints</a>.</p> </important>"
+	        },
+	        "Type":{
+	          "shape":"Type",
+	          "documentation":"<p>Specifies the type of jump.</p>"
+	        },
+	        "MirrorFollowRedirect":{
+	          "shape":"MirrorFollowRedirect",
+	          "documentation":"<p>If the result obtained by the source is 3xx, whether to continue to jump to the specified Location to obtain data.</p>"
+	        }
+	      },
+	      "documentation":"<p>Specifies how requests are redirected or return data from the source. In the event of an error, you can specify a different error code to return.</p>"
+	    },
+        "Type":{"type":"string"},
+        "MirrorFollowRedirect":{"type":"boolean"},
+        "PutSymlinkOutput": {
+            "type":"structure",
+            "members": {
+                "VersionId":{
+                    "shape":"ObjectVersionId",
+                    "documentation":"<p>Returns the version ID of the symlink object.</p>",
+                    "location":"header",
+                    "locationName":"x-amz-version-id"
+                }
+            }
+        },
+        "PutSymlinkRequest":{
+            "type":"structure",
+            "required":[
+                "Bucket",
+                "Key",
+                "SymlinkTarget"
+            ],
+            "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>The name of the destination bucket.</p>",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                "Key":{
+                    "shape":"ObjectKey",
+                    "documentation":"<p>The key of the destination object.</p>",
+                    "location":"uri",
+                    "locationName":"Key"
+                },
+                "SymlinkTarget":{
+                    "shape":"SymlinkTarget",
+                    "documentation":"<p>The target object name of symlink.</p>",
+                    "location":"header",
+                    "locationName":"x-zos-symlink-target"
+                },
+                "ForbidOverwrite":{
+                    "shape":"ForbidOverwrite",
+                    "documentation":"<p>If the key of object exists, whether to forbid to overwrite the object.</p>",
+                    "location":"header",
+                    "locationName":"x-zos-forbid-overwrite"
+                }
+            }
+        },
+        "GetSymlinkOutput":{
+            "type":"structure",
+            "members":{
+                "VersionId":{
+                    "shape":"ObjectVersionId",
+                    "documentation":"<p>Returns the version ID of the symlink object.</p>",
+                    "location":"header",
+                    "locationName":"x-amz-version-id"
+                },
+                "SymlinkTarget":{
+                    "shape":"SymlinkTarget",
+                    "documentation":"<p>The target object name of symlink.</p>",
+                    "location":"header",
+                    "locationName":"x-zos-symlink-target"
+                }
+            }
+          },
+        "GetSymlinkRequest":{
+            "type":"structure",
+            "required":[
+                "Bucket",
+                "Key"
+            ],
+            "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>The name of the destination bucket.</p>",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                "Key":{
+                    "shape":"ObjectKey",
+                    "documentation":"<p>The key of the destination object.</p>",
+                    "location":"uri",
+                    "locationName":"Key"
+                },
+                "VersionId":{
+                    "shape":"ObjectVersionId",
+                    "documentation":"<p>VersionId used to reference a specific version of the object.</p>",
+                    "location":"querystring",
+                    "locationName":"versionId"
+                }
+            }
+        },
+        "SymlinkTarget":{"type":"string"},
+        "ForbidOverwrite":{"type":"boolean"},
+        "Object":{
+            "members":{
+                "Type":{"shape":"Type"}
+            }
+        },
+        "ObjectVersion":{
+            "members":{
+                "Type":{"shape":"Type"}
+            }
+        },
+        "ListSubaccountsRequest": {
+            "type": "structure",
+            "members": {
+            }
+        },
+        "ListSubaccountsResponse": {
+            "type": "structure",
+            "members": {
+                "keys": {
+                    "shape": "userListType",
+                    "documentation": "<p>List of sub accounts for the target user.</p>"
+                },
+                "count": {
+                    "shape": "integerType",
+                    "documentation": "<p>Number of sub accounts.</p>"
+                }
+            },
+            "documentation": "<p>Contains the response to a successful <a>ListSubaccounts</a> request. </p>"
+        },
+        "userListType": {
+            "type": "list",
+            "member": {
+                "shape": "key"
+            }
+        },
+        "key": {
+            "type": "string"
+        },
+        "integerType": {
+            "type": "integer"
+        },
+        "GetSubaccountRequest": {
+            "type": "structure",
+            "required": [
+                "UserID"
+            ],
+            "members": {
+                "UserID": {
+                    "shape": "UserIDType",
+                    "location": "uri",
+                    "locationName": "UserID"
+                }
+            }
+        },
+        "GetSubaccountResponse": {
+            "type": "structure",
+            "members": {
+                "user_id": {
+                    "shape": "stringType"
+                },
+                "display_name": {
+                    "shape": "stringType"
+                },
+                "email": {
+                    "shape": "stringType"
+                },
+                "sub_account_flag": {
+                    "shape": "integerType"
+                },
+                "suspended": {
+                    "shape": "integerType"
+                },
+                "keys": {
+                    "shape": "userKeysType"
+                }
+            },
+            "documentation": "<p>Contains the response to a successful <a>GetSubaccount</a> request. </p>"
+        },
+        "CreateSubaccountRequest": {
+            "type": "structure",
+            "required": [
+                "UserID",
+                "DisplayName"
+            ],
+            "members": {
+                "UserID": {
+                    "shape": "UserIDType",
+                    "location": "uri",
+                    "locationName": "UserID"
+                },
+                "DisplayName": {
+                    "shape": "DisplayNameType",
+                    "location": "uri",
+                    "locationName": "DisplayName"
+                },
+                "Email": {
+                    "shape": "EmailType",
+                    "location": "querystring",
+                    "locationName": "email"
+                },
+                "Suspended": {
+                    "shape": "SuspendedType",
+                    "location": "querystring",
+                    "locationName": "suspended"
+                }
+            }
+        },
+        "CreateSubaccountResponse": {
+            "type": "structure",
+            "members": {
+                "user_id": {
+                    "shape": "stringType"
+                },
+                "display_name": {
+                    "shape": "stringType"
+                },
+                "email": {
+                    "shape": "stringType"
+                },
+                "sub_account_flag": {
+                    "shape": "integerType"
+                },
+                "suspended": {
+                    "shape": "integerType"
+                },
+                "keys": {
+                    "shape": "userKeysType"
+                }
+            },
+            "documentation": "<p>Contains the response to a successful <a>CreateSubaccount</a> request. </p>"
+        },
+        "RemoveSubaccountRequest": {
+            "type": "structure",
+            "required": [
+                "UserID"
+            ],
+            "members": {
+                "UserID": {
+                    "shape": "UserIDType",
+                    "location": "uri",
+                    "locationName": "UserID"
+                }
+            }
+        },
+        "RemoveSubaccountResponse": {
+            "type": "structure",
+            "members": {
+            },
+            "documentation": "<p>Contains the response to a successful <a>RemoveSubaccount</a> request. </p>"
+        },
+        "ModifySubaccountRequest": {
+            "type": "structure",
+            "required": [
+                "UserID"
+            ],
+            "members": {
+                "UserID": {
+                    "shape": "UserIDType",
+                    "location": "uri",
+                    "locationName": "UserID"
+                },
+                "DisplayName": {
+                    "shape": "DisplayNameType",
+                    "location": "querystring",
+                    "locationName": "display-name"
+                },
+                "Email": {
+                    "shape": "EmailType",
+                    "location": "querystring",
+                    "locationName": "email"
+                },
+                "Suspended": {
+                    "shape": "SuspendedType",
+                    "location": "querystring",
+                    "locationName": "suspended"
+                }
+            }
+        },
+        "ModifySubaccountResponse": {
+            "type": "structure",
+            "members": {
+                "user_id": {
+                    "shape": "stringType"
+                },
+                "display_name": {
+                    "shape": "stringType"
+                },
+                "email": {
+                    "shape": "stringType"
+                },
+                "sub_account_flag": {
+                    "shape": "integerType"
+                },
+                "suspended": {
+                    "shape": "integerType"
+                },
+                "keys": {
+                    "shape": "userKeysType"
+                }
+            },
+            "documentation": "<p>Contains the response to a successful <a>ModifySubaccount</a> request. </p>"
+        },
+        "userKeysType": {
+            "type": "list",
+            "member": {
+                "shape": "keyStructure"
+            }
+        },
+        "keyStructure": {
+            "type": "structure",
+            "members": {
+                "access_key": {
+                    "shape": "stringType"
+                },
+                "secret_key": {
+                    "shape": "stringType"
+                },
+                "user": {
+                    "shape": "stringType"
+                }
+            },
+            "documentation": "<p>Contains the uid, access_key and secret_key of sub account. </p>"
+        },
+        "stringType": {
+            "type": "string"
+        },
+        "UserIDType": {
+            "type": "string",
+            "documentation": "<p>Sub account uid. </p>"
+        },
+        "DisplayNameType": {
+            "type": "string",
+            "documentation": "<p>Sub account display-name. </p>"
+        },
+        "EmailType": {
+            "type": "string",
+            "documentation": "<p>Sub account email. </p>"
+        },
+        "SuspendedType": {
+            "type": "boolean",
+            "documentation": "<p>Sub account suspension status. </p>"
+        }
+    },
+    "documentation":"<p/>"
+}
+}

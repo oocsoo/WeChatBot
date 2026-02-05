@@ -1,0 +1,143 @@
+{
+    "version": 1.0,
+    "merge": {
+        "operations": {
+            "GetTopic": {
+                "name": "GetTopic",
+                "http": {
+                    "method": "POST",
+                    "requestUri": "/",
+                    "responseCode": 200
+                },
+                "input": {
+                    "shape": "GetTopicRequest"
+                },
+                "output": {
+                    "shape": "GetTopicResponse"
+                },
+                "documentationUrl": "https://docs.ceph.com/en/latest/radosgw/notifications/#get-topic-information",
+                "documentation": "<p>Get topic info for the user.</p>"
+            },
+            "ListTopics": {
+                "name": "ListTopics",
+                "http": {
+                    "method": "POST",
+                    "requestUri": "/",
+                    "responseCode": 200
+                },
+                "output": {
+                    "shape": "ListTopicsDetailOutput"
+                },
+                "documentationUrl": "https://docs.ceph.com/en/latest/radosgw/notifications/#list-topics",
+                "documentation": "<p>List topics info in detail for the user.</p>"
+            }
+        },
+        "shapes": {
+            "GetTopicRequest": {
+                "type": "structure",
+                "required": [
+                    "TopicArn"
+                ],
+                "members": {
+                    "TopicArn": {
+                        "shape": "topicARN",
+                        "documentation": "<p>Arn of the specific topic used in notifications configuration.</p>",
+                        "location": "uri",
+                        "locationName": "TopicArn"
+                    }
+                }
+            },
+            "GetTopicResponse": {
+                "type": "structure",
+                "members": {
+                    "GetTopicResult": {
+                        "shape": "GetTopicResult",
+                        "documentation": "<p>Get the specific topic info.</p>",
+                        "documentationUrl": "https://docs.ceph.com/en/latest/radosgw/notifications/#get-topic-information"
+                    },
+                    "ResponseMetadata": {
+                        "shape": "ResponseMetadata"
+                    }
+                }
+            },
+            "GetTopicResult": {
+                "type": "structure",
+                "members": {
+                    "Topic": {
+                        "shape": "TopicDetail"
+                    }
+                }
+            },
+            "TopicDetail": {
+                "type": "structure",
+                "members": {
+                    "User": {
+                        "shape": "string"
+                    },
+                    "Name": {
+                        "shape": "topicName"
+                    },
+                    "EndPoint": {
+                        "shape": "EndPointDetail"
+                    },
+                    "TopicArn": {
+                        "shape": "topicARN"
+                    },
+                    "OpaqueData": {
+                        "shape": "OpaqueData"
+                    }
+                }
+            },
+            "EndPointDetail": {
+                "type": "structure",
+                "members": {
+                    "EndpointAddress": {
+                        "shape": "string"
+                    },
+                    "EndpointArgs": {
+                        "shape": "string"
+                    },
+                    "EndpointTopic": {
+                        "shape": "string"
+                    }
+                }
+            },
+            "OpaqueData": {
+                "type": "string"
+            },
+            "ResponseMetadata": {
+                "type": "structure",
+                "members": {
+                    "RequestId": {
+                        "shape": "string"
+                    }
+                }
+            },
+            "ListTopicsDetailOutput": {
+                "type": "structure",
+                "members": {
+                    "Topics": {
+                        "shape": "TopicsDetail",
+                        "documentation": "<p>List all the topic info in detail.</p>",
+                        "documentationUrl": "https://docs.ceph.com/en/latest/radosgw/notifications/#list-topics"
+                    }
+                }
+            },
+            "ListTopicsResult": {
+                "type": "structure",
+                "members": {
+                    "Topics": {
+                        "shape": "TopicsDetail"
+                    }
+                }
+            },
+            "TopicsDetail": {
+                "type": "list",
+                "member": {
+                    "shape": "TopicDetail"
+                }
+            }
+        },
+        "documentation": "<p/>"
+    }
+}

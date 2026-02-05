@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  wechatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wechatbot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # 持久化数据目录
+      - ./data:/app/data
+      - ./record:/app/record
+      - ./image:/app/image
+      - ./RAG:/app/RAG
+      - ./prompt.md:/app/prompt.md
+    # 如果需要访问宿主机网络，取消下面的注释
+    # network_mode: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
