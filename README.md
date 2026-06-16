@@ -35,10 +35,10 @@ cd wechatbot
 
 ```bash
 # 基础配置
-ROBOT_ID=your_robot_id          # 机器人微信ID
-TOKEN=your_token                # 认证令牌
-SERVER_IP=server_ip             # WebSocket 服务器地址
-SERVER_PORT=5555                # WebSocket 服务器端口
+ROBOT_ID=your_robot_id          # 机器人微信ID，获取：https://www.wechatbot.online
+TOKEN=your_token                # 认证令牌，获取：https://www.wechatbot.online
+SERVER_IP=server_ip             # WebSocket 服务器地址，获取：https://www.wechatbot.online
+SERVER_PORT=5555                # WebSocket 服务器端口，获取：https://www.wechatbot.online
 
 # AI 模型配置（选择使用的模型配置对应密钥）
 DEEPSEEK_API_KEY=sk-xxx         # DeepSeek API 密钥
